@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yurei</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=7">
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://esm.sh/three@0.160.0",
+            "three/addons/": "https://esm.sh/three@0.160.0/examples/jsm/",
+            "gsap": "https://esm.sh/gsap@3.12.5",
+            "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+            "@studio-freight/lenis": "https://esm.sh/@studio-freight/lenis@1.0.42"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Contenedor WebGL (Fondo y Texto 3D) -->
+    <canvas id="webgl-canvas"></canvas>
+    <div class="page-wrapper">
+        <div class="top-half">
+        <!-- SECCIÓN 1: Cabecera y Título Principal -->
+        <header class="section-1">
+            <nav class="top-nav">
+                <div class="nav-col" id="nav-logo-anchor" style="opacity: 0;">VRITNI</div>
+                <div class="nav-col">Artista Visual / Productor / Programador Creativo</div>
+                <div class="nav-col"><a href="mailto:contact@yurei.com">Email</a></div>
+                <div class="nav-col"><a href="https://www.instagram.com/yurei9_/" target="_blank">Instagram</a></div>
+            </nav>
+            <div class="hero">
+                <h1 class="big-title">
+                    *yurei*<br>
+                </h1>
+            </div>
+            
+            <!-- ABOUT ME -->
+            <div class="about-section">
+                <div class="about-label" id="about-trigger">About <span>[-]</span></div>
+                <div class="about-text-wrapper open" id="about-content">
+                    <div class="about-text">
+                        <p>yurei es un productor musical, artista visual y miembro del colectivo vritni que junta la musica y la estética digital como una sola experiencia. Su trabajo es un cruce constante entre disciplinas artísticas desde la producción musical, hasta el diseño de narrativas inmersivas a través del VJing, la dirección visual de escenarios y el desarrollo de VFX para proyectos audiovisuales.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="bottom-half">
+        <!-- TÍTULO DE SECCIÓN: SERVICIOS -->
+        <div class="section-header no-border no-top-margin">
+            <h2 class="section-title">Servicios disponibles</h2>
+        </div>
+
+        <!-- SECCIÓN 2: Listado de Servicios -->
+        <main class="section-2">
+            <!-- Servicio 1 -->
+            <article class="service-row">
+                <div class="col-25">
+                    <h2 class="service-title">Live VJing </h2>
+                    <p class="service-desc">Mezcla visual en tiempo real sincronizada al ritmo del show.</p>
+                </div>
+                <div class="col-25">
+                    
+                </div>
+            </article>
+
+            <!-- Servicio 2 -->
+            <article class="service-row">
+                <div class="col-25">
+                    <h2 class="service-title">Visual Direction</h2>
+                    <p class="service-desc">Diseño de narrativa estética y coordinación con iluminación + Visuales personalizadas</p>
+                </div>
+                <div class="col-25">
+              
+                </div>
+            </article>
+
+            <!-- Servicio 3 -->
+            <article class="service-row">
+                <div class="col-25">
+                    <h2 class="service-title">VFX & Visualizers</h2>
+                    <p class="service-desc">Creación de piezas visuales, simulaciones y renders para lanzamientos.</p>
+                </div>
+                <div class="col-25">
+       
+                </div>
+            </article>
+
+            
+
+            <!-- Servicio 4 -->
+            <article class="service-row">
+                <div class="col-25">
+                    <h2 class="service-title">Instalaciones Interactivas</h2>
+                    <p class="service-desc">Sistemas visuales interactivos mediante sensores y programación creativa.</p>
+                </div>
+                <div class="col-25">
+         
+                </div>
+            </article>
+                        <article class="service-row">
+                <div class="col-25">
+                    <h2 class="service-title">Clases de Vjing </h2>
+                    <p class="service-desc">Tutorias personalizadas para el aprendizaje de la técnica de Vjing usando Touchdesigner</p>
+                </div>
+                <div class="col-25">
+       
+                </div>
+            </article>
+
+            <article class="service-row">
+                <div class="col-25">
+                    <h2 class="service-title">Desarrollo web</h2>
+                    <p class="service-desc">Sitios web y aplicaciones web interactivas para artistas</p>
+                </div>
+                <div class="col-25">
+       
+                </div>
+                </main>
+        </div> <!-- End bottom half -->
+
+        <div class="third-part">
+        <!-- CRÉDITOS AUDIOVISUALES -->
+        <div class="section-header">
+            <h2 class="section-title">Créditos audiovisuales</h2>
+        </div>
+        <section class="credits-section">
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">VFX Audioreactivo</div>
+                <div class="col-50">Nightlight - cristalina prod mndp kimzhel</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">VFX Audioreactivo</div>
+                <div class="col-50">Nightlight - intentos prod britneygore</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">VFX Audioreactivo</div>
+                <div class="col-50">kimzhel - terapia de choque prod kimzhel</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">VFX Audioreactivo</div>
+                <div class="col-50">b3forever - sin perder la fe prod dimecomokieras</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">Visualizer Audioreactivo</div>
+                <div class="col-50">Naxowo - STAR</div>
+            </article>
+        </section>
+
+        <!-- VISUALES EN VIVO -->
+        <div class="section-header">
+            <h2 class="section-title">Visuales en vivo</h2>
+        </div>
+        <section class="credits-section">
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">Live VJ Set</div>
+                <div class="col-50">Christian Galvez Organ Trio @ Opera Teatro club, La serena</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">Visuales en vivo</div>
+                <div class="col-50">Kuroh97 + TunecchiKid @ Teatro Centenario, La serena</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">Visuales en vivo</div>
+                <div class="col-50">VRITNI @ Club Ambar, Santiago</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">Visuales</div>
+                <div class="col-50">VRITNI PROTOCOL @ City Hall , Barcelona</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">Visuales en vivo</div>
+                <div class="col-50">Matiah Chinaski + Dj Perez @ Opera Teatro club, La serena</div>
+            </article>
+        </section>
+
+        <!-- CRÉDITOS DE PRODUCCIÓN -->
+        <div class="section-header">
+            <h2 class="section-title">Créditos de Producción</h2>
+        </div>
+        <section class="credits-section">
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">co-prod</div>
+                <div class="col-50">Saikoro - Como tu [prod yurei + moneynumbdapain]</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">co-prod</div>
+                <div class="col-50">CERO* - cartas [prod yurei + nulko]</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">co-prod</div>
+                <div class="col-50">neva pray - gajar [prod yurei + britneygore]</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-25">2025</div>
+                <div class="col-25">co-prod</div>
+                <div class="col-50">prblm + mndp + joshu joshu + donny graff - velinda [prod yurei + love]</div>
+            </article>
+            <article class="credit-row">
+                <div class="col-24">2024</div>
+                <div class="col-25">co-prod</div>
+                <div class="col-50">sadde - radar [prod yurei + nulko]</div>
+            </article>
+        </section>
+
+        <!-- SECCIÓN 3: PIE DE PÁGINA (FOOTER) -->
+        <footer class="section-3">
+            <div class="footer-row">
+                <div class="footer-col footer-logo">VRITNI</div>
+                <div class="footer-col">
+                    <ul class="footer-list">
+                        <li><a href="mailto:contact@yurei.com">Email</a></li>
+                        <li><a href="https://instagram.com/yurei9_">Instagram</a></li>
+                    </ul>
+                </div>
+             
+            </div>
+        </footer>
+        </div> <!-- End third part -->
+    </div> <!-- End page wrapper -->
+    <script>
+        // 1. Generar un color de fondo aleatorio (Varianza extrema)
+        const randomHue = Math.floor(Math.random() * 360);
+        const bgSat = 10 + Math.floor(Math.random() * 90);
+        const bgLight = 15 + Math.floor(Math.random() * 70);
+        const randomColor = `hsl(${randomHue}, ${bgSat}%, ${bgLight}%)`;
+        document.documentElement.style.setProperty('--bg-color', randomColor);
+
+        // 2. Calcular color de contraste para el título gigante
+        const offsets = [180, 150, 210, 120, 240, 90, 270, 30, 330];
+        const offset = offsets[Math.floor(Math.random() * offsets.length)];
+        const titleHue = (randomHue + offset) % 360;
+        
+        const titleSat = 30 + Math.floor(Math.random() * 70);
+        
+        // Lógica de contraste extremo SIEMPRE (Garantiza legibilidad)
+        const isBgLight = bgLight > 50;
+        const titleLight = isBgLight ? (5 + Math.floor(Math.random() * 20)) : (75 + Math.floor(Math.random() * 20));
+
+        const titleColor = `hsl(${titleHue}, ${titleSat}%, ${titleLight}%)`;
+        document.documentElement.style.setProperty('--title-color', titleColor);
+
+        // 3. Generar un tercer color para la última sección
+        // Usamos el mismo salto (offset) pero hacia el lado opuesto del círculo cromático
+        const thirdHue = (randomHue - offset + 360) % 360;
+        const thirdSat = 40 + Math.floor(Math.random() * 50);
+        
+        // Asignamos luz inversa a la segunda sección (titleLight) para que contraste
+        // Si titleLight es oscuro, thirdBgLight debe ser claro, y viceversa.
+        const isTitleLight = titleLight > 50;
+        const thirdBgLight = isTitleLight ? (20 + Math.floor(Math.random() * 30)) : (60 + Math.floor(Math.random() * 30));
+        const thirdBgColor = `hsl(${thirdHue}, ${thirdSat}%, ${thirdBgLight}%)`;
+        document.documentElement.style.setProperty('--third-bg-color', thirdBgColor);
+
+        // Asegurar contraste para el texto de la tercera sección
+        const isThirdBgLight = thirdBgLight > 50;
+        const thirdTextLight = isThirdBgLight ? (5 + Math.floor(Math.random() * 20)) : (75 + Math.floor(Math.random() * 20));
+        const thirdTextColor = `hsl(${titleHue}, ${thirdSat}%, ${thirdTextLight}%)`; // Reusamos el hue del title para cohesión
+        document.documentElement.style.setProperty('--third-text-color', thirdTextColor);
+
+        // 4. Tipografía Aleatoria para el Título
+        const fonts = [
+            "'Inter', sans-serif", 
+            "'Helvetica Neue', Helvetica, Arial, sans-serif"
+        ];
+        document.documentElement.style.setProperty('--title-font', fonts[Math.floor(Math.random() * fonts.length)]);
+
+        // 5. Peso y Estilo de Fuente Aleatorios
+        const weights = [300, 400, 500, 700, 900];
+        document.documentElement.style.setProperty('--title-weight', weights[Math.floor(Math.random() * weights.length)]);
+        document.documentElement.style.setProperty('--title-style', Math.random() > 0.75 ? 'italic' : 'normal');
+
+        // 6. Transformación del Texto
+        const transforms = ['lowercase', 'uppercase', 'none'];
+        document.documentElement.style.setProperty('--title-transform', transforms[Math.floor(Math.random() * transforms.length)]);
+
+        // La textura fue removida para dejar los fondos completamente sólidos y limpios
+
+        // Lógica de la sección About
+        const aboutTrigger = document.getElementById('about-trigger');
+        const aboutContent = document.getElementById('about-content');
+        
+        aboutTrigger.addEventListener('click', () => {
+            aboutContent.classList.toggle('open');
+            const span = aboutTrigger.querySelector('span');
+            if (aboutContent.classList.contains('open')) {
+                span.textContent = '[-]';
+            } else {
+                span.textContent = '[+]';
+            }
+        });
+    </script>
+    <script type="module" src="./main.js?v=7"></script>
+</body>
+</html>
+

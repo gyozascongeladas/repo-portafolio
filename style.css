@@ -1,0 +1,361 @@
+/* VARIABLES DE TEMA */
+:root {
+    --bg-color: #a188f9; /* Cambia este valor para probar distintos colores de fondo (ej. #e4e4e4, #0000ff, #111111) */
+    --text-color: #111111; /* Color principal del texto */
+    --line-color: #222222; /* Color de las líneas divisorias */
+    --placeholder-bg: #111111; /* Color de los cuadros de imagen */
+    --title-color: #111111; /* Color del texto gigante */
+    --title-font: 'Inter', sans-serif;
+    --title-weight: 700;
+    --title-style: normal;
+    --title-transform: lowercase;
+    --bg-image: none;
+    --bg-size: auto;
+    --bg-position: 0 0;
+}
+
+/* RESTABLECIMIENTO BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Evita que los márgenes se rompan por el título gigante */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+/* WEBGL CANVAS */
+#webgl-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Se dibuja por encima de los fondos CSS pero debajo del contenido */
+    pointer-events: none;
+}
+
+.page-wrapper {
+    /* Eliminamos el z-index para que no atrape el contexto de apilamiento */
+}
+
+.top-half {
+    background-color: var(--bg-color);
+    background-image: var(--bg-image);
+    background-size: var(--bg-size);
+    background-position: var(--bg-position);
+    color: var(--title-color);
+    padding: 2vw;
+}
+
+.bottom-half {
+    color: var(--bg-color);
+    padding: 2vw 2vw 4vw 2vw;
+}
+
+.third-part {
+    color: var(--third-text-color);
+    padding: 2vw 2vw 4vw 2vw;
+}
+
+/* Colocamos todo el contenido HTML por encima del Canvas WebGL */
+.top-half > *, .bottom-half > *, .third-part > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* SECCIÓN 1: CABECERA Y TÍTULO PRINCIPAL */
+.section-1 {
+    margin-bottom: 2vw;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px; /* Tamaño de fuente ligeramente mayor (antes 10px) */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5vh;
+}
+
+.nav-col.right-align {
+    text-align: right;
+}
+
+.hero {
+    width: 100%;
+    overflow: hidden; /* Recorta limpiamente cualquier texto que sobresalga a la derecha */
+    min-height: 25vw;
+}
+
+.big-title {
+    color: var(--title-color);
+    font-family: var(--title-font);
+    font-weight: var(--title-weight);
+    font-style: var(--title-style);
+    text-transform: var(--title-transform);
+    font-size: 19vw;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin-left: -0.5vw;
+    white-space: nowrap;
+    padding-bottom: 2vw;
+    opacity: 0; /* Oculto visualmente para dar espacio al 3D, pero conserva su espacio en el DOM */
+}
+
+/* ABOUT SECTION */
+.about-section {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    padding: 3vw 0 4vw 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.about-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: currentColor;
+    opacity: 0.6;
+    cursor: pointer; /* Indica interactividad */
+    user-select: none;
+}
+
+.about-label:hover {
+    opacity: 1;
+}
+
+.about-text-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Animación suave */
+}
+
+.about-text-wrapper.open {
+    max-height: 400px; /* Altura suficiente para mostrar el texto */
+}
+
+.about-text {
+    color: currentColor;
+    opacity: 0.9;
+    padding-right: 2vw; /* Pequeño margen derecho para que no pegue al borde */
+}
+
+/* ENCABEZADOS DE SECCIÓN */
+.section-header {
+    border-top: 1px solid currentColor;
+    padding: 2vw 0 1vw 0;
+    margin-top: 4vw;
+}
+
+.section-header.no-top-margin {
+    margin-top: 0;
+}
+
+.section-header.no-border {
+    border-top: none;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* SECCIÓN 2: LISTADO DE SERVICIOS */
+.section-2 {
+    border-top: none; /* Línea sutil horizontal removida según petición */
+}
+
+/* SECCIÓN DE CRÉDITOS */
+.credits-section {
+    margin-bottom: 2vw;
+}
+
+.credit-row, .service-row {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Preparado para GSAP reveal */
+}
+
+.credit-row {
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    border-bottom: 1px solid currentColor;
+    padding: 1vw 0;
+    font-size: 0.95rem;
+}
+
+.credit-row:last-child {
+    border-bottom: none;
+}
+
+.service-row {
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    border-bottom: 1px solid currentColor;
+    padding: 2vw 0;
+}
+
+.service-row:last-child {
+    border-bottom: none; /* Remueve la barra antes de créditos audiovisuales */
+}
+
+.col-25 {
+    padding-right: 2vw;
+}
+
+.col-50 {
+    width: 100%;
+}
+
+.service-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+}
+
+.service-desc {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: currentColor;
+    opacity: 0.9;
+}
+
+.service-tech {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: currentColor;
+    opacity: 0.7;
+}
+
+/* Placeholders de imágenes/video (Brutalist style) */
+.media-grid-complex {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1vw;
+    height: 400px;
+}
+
+.placeholder-large {
+    background-color: #111111;
+    width: 100%;
+    height: 100%;
+}
+
+.placeholder-small-stack {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1vw;
+    height: 100%;
+}
+
+.placeholder-small {
+    background-color: #111111;
+    width: 100%;
+    height: 100%;
+}
+
+.placeholder-full {
+    background-color: #111111;
+    width: 100%;
+    height: 400px;
+}
+
+/* SECCIÓN 3: PIE DE PÁGINA */
+.section-3 {
+    margin-top: 5vw;
+}
+
+.footer-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding-bottom: 2vw;
+}
+
+.footer-col {
+    padding-right: 2vw;
+}
+
+.footer-logo {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-list li::before {
+    content: "• ";
+}
+
+.footer-about {
+    text-align: justify; /* Textura densa de texto en el footer */
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        gap: 2vh;
+        align-items: center;
+        text-align: center;
+    }
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 2vh;
+    }
+    .service-row, .credit-row {
+        grid-template-columns: 1fr;
+        gap: 1.5vh;
+        padding-bottom: 3vh;
+    }
+    .col-25, .col-50 {
+        width: 100%;
+        padding-right: 0;
+    }
+    .media-grid-complex {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 2vh;
+    }
+    .placeholder-large, .placeholder-full {
+        height: 250px;
+    }
+    .placeholder-small-stack {
+        display: none;
+    }
+    .footer-row {
+        grid-template-columns: 1fr;
+        gap: 3vh;
+        text-align: center;
+    }
+}
