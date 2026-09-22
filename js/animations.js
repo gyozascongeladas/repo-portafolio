@@ -85,4 +85,22 @@ export function initAnimations() {
             { y: 0, opacity: 1, skewY: 0, duration: 1.2, ease: 'power4.out', delay: 0.2 }
         );
     }
+
+    // 5. Navbar Mágico
+    const scrollContainers = document.querySelectorAll('.bottom-half, .third-part');
+    const NAVBAR_HEIGHT = 100;
+    
+    gsap.ticker.add(() => {
+        scrollContainers.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < NAVBAR_HEIGHT) {
+                const clipTop = NAVBAR_HEIGHT - rect.top;
+                if (clipTop > 0) {
+                    el.style.clipPath = `inset(${clipTop}px 0 0 0)`;
+                }
+            } else {
+                el.style.clipPath = 'none';
+            }
+        });
+    });
 }
