@@ -103,4 +103,31 @@ export function initAnimations() {
             }
         });
     });
+
+    // 6. Smooth Scroll para Anchor Links en la Navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            if (target && target !== '#') {
+                lenis.scrollTo(target, { offset: -160 }); // offset ajustado a -220 para encuadrar según screenshots
+            }
+        });
+    });
+
+    // 7. Back to Top invisible button
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        gsap.ticker.add(() => {
+            if (window.scrollY > 150) {
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.pointerEvents = 'none';
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            lenis.scrollTo(0);
+        });
+    }
 }

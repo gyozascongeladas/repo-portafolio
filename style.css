@@ -323,11 +323,14 @@ ul {
 
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
+    .hero {
+        min-height: 30vh;
+    }
     .top-nav {
-        flex-direction: column;
-        gap: 2vh;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 9px;
+        gap: 2vw;
     }
     .about-section {
         grid-template-columns: 1fr;
