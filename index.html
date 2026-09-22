@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=10">
     
     <script type="importmap">
     {
@@ -23,16 +23,17 @@
 </head>
 <body>
     <!-- Contenedor WebGL (Fondo y Texto 3D) -->
+    <!-- Botón invisible superpuesto al logo 3D para volver arriba -->
+    <a href="#" id="back-to-top" style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 300px; height: 120px; z-index: 100; pointer-events: none; cursor: pointer;"></a>
     <canvas id="webgl-canvas"></canvas>
     <div class="page-wrapper">
         <div class="top-half">
         <!-- SECCIÓN 1: Cabecera y Título Principal -->
         <header class="section-1">
             <nav class="top-nav">
-                <div class="nav-col" id="nav-logo-anchor" style="opacity: 0;">VRITNI</div>
-                <div class="nav-col">Artista Visual / Productor / Programador Creativo</div>
-                <div class="nav-col"><a href="mailto:contact@yurei.com">Email</a></div>
-                <div class="nav-col"><a href="https://www.instagram.com/yurei9_/" target="_blank">Instagram</a></div>
+                <div class="nav-col"><a href="#creditos-visuales" class="nav-link">Artista Visual</a></div>
+                <div class="nav-col"><a href="#creditos-produccion" class="nav-link">Productor</a></div>
+                <div class="nav-col right-align"><a href="#programacion" class="nav-link">Programador Creativo</a></div>
             </nav>
             <div class="hero">
                 <h1 class="big-title">
@@ -45,7 +46,7 @@
                 <div class="about-label" id="about-trigger">About <span>[-]</span></div>
                 <div class="about-text-wrapper open" id="about-content">
                     <div class="about-text">
-                        <p>yurei es un productor musical, artista visual y miembro del colectivo vritni que junta la musica y la estética digital como una sola experiencia. Su trabajo es un cruce constante entre disciplinas artísticas desde la producción musical, hasta el diseño de narrativas inmersivas a través del VJing, la dirección visual de escenarios y el desarrollo de VFX para proyectos audiovisuales.</p>
+                        <p>yurei es un productor musical, DJ, artista visual y miembro del colectivo vritni que junta la musica y la estética digital como una sola experiencia. Su trabajo es un cruce constante entre disciplinas artísticas desde la producción musical, hasta el diseño de narrativas inmersivas a través del VJing, la dirección visual de escenarios y el desarrollo de VFX para proyectos audiovisuales.</p>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@
 
         <div class="bottom-half">
         <!-- TÍTULO DE SECCIÓN: SERVICIOS -->
-        <div class="section-header no-border no-top-margin">
+        <div class="section-header no-border no-top-margin" id="servicios">
             <h2 class="section-title">Servicios disponibles</h2>
         </div>
 
@@ -95,7 +96,7 @@
             
 
             <!-- Servicio 4 -->
-            <article class="service-row">
+            <article class="service-row" id="programacion">
                 <div class="col-25">
                     <h2 class="service-title">Instalaciones Interactivas</h2>
                     <p class="service-desc">Sistemas visuales interactivos mediante sensores y programación creativa.</p>
@@ -127,12 +128,12 @@
 
         <div class="third-part">
         <!-- CRÉDITOS AUDIOVISUALES -->
-        <div class="section-header">
+        <div class="section-header" id="creditos-visuales">
             <h2 class="section-title">Créditos audiovisuales</h2>
         </div>
         <section class="credits-section">
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">VFX Audioreactivo</div>
                 <div class="col-50">Nightlight - cristalina prod mndp kimzhel</div>
             </article>
@@ -142,12 +143,12 @@
                 <div class="col-50">Nightlight - intentos prod britneygore</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">VFX Audioreactivo</div>
                 <div class="col-50">kimzhel - terapia de choque prod kimzhel</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">VFX Audioreactivo</div>
                 <div class="col-50">b3forever - sin perder la fe prod dimecomokieras</div>
             </article>
@@ -164,54 +165,54 @@
         </div>
         <section class="credits-section">
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">Live VJ Set</div>
                 <div class="col-50">Christian Galvez Organ Trio @ Opera Teatro club, La serena</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">Visuales en vivo</div>
                 <div class="col-50">Kuroh97 + TunecchiKid @ Teatro Centenario, La serena</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">Visuales en vivo</div>
                 <div class="col-50">VRITNI @ Club Ambar, Santiago</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">Visuales</div>
                 <div class="col-50">VRITNI PROTOCOL @ City Hall , Barcelona</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">Visuales en vivo</div>
                 <div class="col-50">Matiah Chinaski + Dj Perez @ Opera Teatro club, La serena</div>
             </article>
         </section>
 
         <!-- CRÉDITOS DE PRODUCCIÓN -->
-        <div class="section-header">
+        <div class="section-header" id="creditos-produccion">
             <h2 class="section-title">Créditos de Producción</h2>
         </div>
         <section class="credits-section">
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2024</div>
                 <div class="col-25">co-prod</div>
                 <div class="col-50">Saikoro - Como tu [prod yurei + moneynumbdapain]</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">co-prod</div>
                 <div class="col-50">CERO* - cartas [prod yurei + nulko]</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">co-prod</div>
                 <div class="col-50">neva pray - gajar [prod yurei + britneygore]</div>
             </article>
             <article class="credit-row">
-                <div class="col-25">2025</div>
+                <div class="col-25">2026</div>
                 <div class="col-25">co-prod</div>
                 <div class="col-50">prblm + mndp + joshu joshu + donny graff - velinda [prod yurei + love]</div>
             </article>
@@ -224,16 +225,12 @@
 
         <!-- SECCIÓN 3: PIE DE PÁGINA (FOOTER) -->
         <footer class="section-3">
-            <div class="footer-row">
-                <div class="footer-col footer-logo">VRITNI</div>
-                <div class="footer-col">
-                    <ul class="footer-list">
-                        <li><a href="mailto:contact@yurei.com">Email</a></li>
-                        <li><a href="https://instagram.com/yurei9_">Instagram</a></li>
-                    </ul>
-                </div>
-             
-            </div>
+            <nav class="top-nav" style="margin-bottom: 2vh; margin-top: 10vh; border-top: 1px solid currentColor; padding-top: 2vh;">
+                <div class="nav-col"><a href="https://www.instagram.com/vritni/" target="_blank">VRITNI</a></div>
+                <div class="nav-col"><a href="mailto:ilovevritni@gmail.com">EMAIL</a></div>
+                <div class="nav-col"><a href="https://www.instagram.com/yurei9_" target="_blank">INSTAGRAM</a></div>
+                <div class="nav-col right-align"><a href="https://open.spotify.com/intl-es/artist/46RVjWubjJa8KED6QQN7vJ?si=_RNVvEyNTN2gse8ovIZ50g" target="_blank">SPOTIFY</a></div>
+            </nav>
         </footer>
         </div> <!-- End third part -->
     </div> <!-- End page wrapper -->

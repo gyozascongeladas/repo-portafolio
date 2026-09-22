@@ -1,5 +1,5 @@
-import { initThree } from './js/webgl.js?v=5';
-import { initAnimations } from './js/animations.js?v=4';
+import { initThree } from './js/webgl.js?v=8';
+import { initAnimations } from './js/animations.js?v=7';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Inicializar Entorno WebGL (Shaders + 3D Text)

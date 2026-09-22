@@ -128,8 +128,7 @@ export function initThree() {
 
     // 2. Geometría de Texto 3D Magnético
     let textMesh;
-    let logoMesh;
-    const fontLoader = new FontLoader();
+        const fontLoader = new FontLoader();
     
     fontLoader.load('https://unpkg.com/three@0.160.0/examples/fonts/helvetiker_bold.typeface.json', (font) => {
         const textGeometry = new TextGeometry('*yurei*', {
@@ -161,40 +160,7 @@ export function initThree() {
         scene.add(textMesh);
         
         // --- TEXTO VRITNI PARA NAVBAR CON LETTER SPACING ---
-        logoMesh = new THREE.Group();
-        const letters = 'VRITNI'.split('');
-        let currentX = 0;
-        const letterSpacing = 0.15; // Espaciado entre letras manual
-        const logoSize = 0.25;
         
-        letters.forEach((letter) => {
-            const geom = new TextGeometry(letter, {
-                font: font,
-                size: logoSize,
-                height: 0.1,
-                curveSegments: 12,
-                bevelEnabled: true,
-                bevelThickness: 0.02,
-                bevelSize: 0.01,
-                bevelOffset: 0,
-                bevelSegments: 3
-            });
-            geom.computeBoundingBox();
-            const width = geom.boundingBox.max.x - geom.boundingBox.min.x;
-            const mesh = new THREE.Mesh(geom, textMaterial);
-            mesh.position.x = currentX;
-            logoMesh.add(mesh);
-            currentX += width + letterSpacing;
-        });
-        
-        // Centrar el grupo completo (X y Y aproximado)
-        const totalWidth = currentX - letterSpacing;
-        logoMesh.children.forEach(child => {
-            child.position.x -= totalWidth / 2;
-            child.position.y -= logoSize / 2; // Centrado vertical
-        });
-        
-        scene.add(logoMesh);
         
         // Actualizar colores iniciales luego de cargar
         updateColors();
@@ -371,47 +337,27 @@ export function initThree() {
             // progress va de 0.0 a 1.0 a medida que bajamos los primeros 500 pixeles
             const scrollProgress = Math.min(1.0, window.scrollY / 500);
             
-            // Posición Y: Inicia en 3.5, sube hasta 7.0 (borde superior de la pantalla)
-            const stickyPositionY = 3.5 + (scrollProgress * 3.5);
+            const isMobile = window.innerWidth <= 768;
+            
+            // Posición Y: Inicia en 3.5 para quedar entre Instagram y About
+            const initialY = 3.5;
+            const stickyPositionY = initialY + (scrollProgress * (7.0 - initialY));
             
             // Posición X: Se desliza hacia el centro al encogerse
-            const isMobile = window.innerWidth <= 768;
             const startX = isMobile ? 0 : -2.0;
             const targetX = 0; // Centrado exacto
             textMesh.position.x = startX + (scrollProgress * (targetX - startX));
 
-            // Escala: Inicia en 1.0 (gigante), se reduce hasta 0.35 (modo "nav logo")
-            const targetScale = 1.0 - (scrollProgress * 0.65);
+            // Escala: En móvil siempre se mantiene cercano a 0.4. En desktop baja de 1.0 a 0.35
+            const baseScale = isMobile ? 0.4 : 1.0;
+            const targetScale = baseScale - (scrollProgress * (baseScale - 0.35));
             textMesh.scale.setScalar(targetScale);
             
             // Efecto de levitación/incandescencia acentuado en reposo (reducido al encogerse)
             textMesh.position.y = stickyPositionY + Math.sin(elapsedTime * 2.0) * (0.4 * targetScale);
         }
 
-        if (logoMesh) {
-            const anchor = document.getElementById('nav-logo-anchor');
-            if (anchor) {
-                const rect = anchor.getBoundingClientRect();
-                
-                // Proyectar coordenadas del DOM a coordenadas 3D del Mundo
-                const vec = new THREE.Vector3();
-                vec.x = ((rect.left + rect.width / 2) / window.innerWidth) * 2 - 1;
-                vec.y = -((rect.top + rect.height / 2) / window.innerHeight) * 2 + 1;
-                vec.z = 0.5;
-                vec.unproject(camera);
-                vec.sub(camera.position).normalize();
-                
-                const distance = -camera.position.z / vec.z;
-                const pos = new THREE.Vector3().copy(camera.position).add(vec.multiplyScalar(distance));
-                
-                logoMesh.position.x = pos.x;
-                // Efecto de levitación con menor frecuencia que el título principal
-                logoMesh.position.y = pos.y + Math.sin(elapsedTime * 1.0) * 0.15;
-                
-                // Asegurar que mire siempre de frente (rotación 0)
-                logoMesh.rotation.set(0, 0, 0);
-            }
-        }
+        
 
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
