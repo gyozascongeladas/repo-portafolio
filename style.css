@@ -363,3 +363,6 @@ ul {
         text-align: center;
     }
 }
+
+.credit-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.2s; }
+.credit-link:hover { opacity: 0.6; }
