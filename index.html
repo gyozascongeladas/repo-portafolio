@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=15">
     
     <script type="importmap">
     {
@@ -64,7 +64,7 @@
             <article class="service-row">
                 <div class="col-25">
                     <h2 class="service-title">Live VJing </h2>
-                    <p class="service-desc">Mezcla visual en tiempo real sincronizada al ritmo del show.</p>
+                    <p class="service-desc">Ejecución visual en directo. Mezcla de loops, texturas generativas y efectos procesados en tiempo real al ritmo del set.</p>
                 </div>
                 <div class="col-25">
                     
@@ -75,7 +75,7 @@
             <article class="service-row">
                 <div class="col-25">
                     <h2 class="service-title">Visual Direction</h2>
-                    <p class="service-desc">Diseño de narrativa estética y coordinación con iluminación + Visuales personalizadas</p>
+                    <p class="service-desc">Dirección de arte para el escenario. Conceptualización de la narrativa visual, creación de contenido a medida y coordinación técnica con iluminación (LD).</p>
                 </div>
                 <div class="col-25">
               
@@ -107,8 +107,8 @@
             </article>
                         <article class="service-row">
                 <div class="col-25">
-                    <h2 class="service-title">Clases de Vjing </h2>
-                    <p class="service-desc">Tutorias personalizadas para el aprendizaje de la técnica de Vjing usando Touchdesigner</p>
+                    <h2 class="service-title">Clases de VJing </h2>
+                    <p class="service-desc">Tutorías personalizadas para el aprendizaje de la técnica de VJing usando TouchDesigner.</p>
                 </div>
                 <div class="col-25">
        
@@ -118,7 +118,7 @@
             <article class="service-row">
                 <div class="col-25">
                     <h2 class="service-title">Desarrollo web</h2>
-                    <p class="service-desc">Sitios web y aplicaciones web interactivas para artistas</p>
+                    <p class="service-desc">Sitios web y aplicaciones web interactivas para artistas.</p>
                 </div>
                 </div>
             </article>
@@ -273,8 +273,8 @@
 
         // Asegurar contraste para el texto de la tercera sección
         const isThirdBgLight = thirdBgLight > 50;
-        const thirdTextLight = isThirdBgLight ? (5 + Math.floor(Math.random() * 20)) : (75 + Math.floor(Math.random() * 20));
-        const thirdTextColor = `hsl(${titleHue}, ${thirdSat}%, ${thirdTextLight}%)`; // Reusamos el hue del title para cohesión
+        const thirdTextLight = isThirdBgLight ? 5 : 95;
+        const thirdTextColor = `hsl(${thirdHue}, 30%, ${thirdTextLight}%)`;
         document.documentElement.style.setProperty('--third-text-color', thirdTextColor);
 
         // 4. Tipografía Aleatoria para el Título
